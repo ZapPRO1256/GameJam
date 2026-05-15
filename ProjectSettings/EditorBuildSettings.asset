@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Dark fantasy - popular enemies- Free Sample/Level1.unity
     guid: 43a7b4eb6d54f1348884af245fb7f53f
+  - enabled: 1
+    path: Assets/Dark fantasy - popular enemies- Free Sample/Level2.unity
+    guid: 9a6bb9646bdf4714698e1114c4913eba
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

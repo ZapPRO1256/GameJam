@@ -512,6 +512,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: a22685f337eca7e44bb09d1c809c50fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8773410891767031045}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: a22685f337eca7e44bb09d1c809c50fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5147172594292450265}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: a22685f337eca7e44bb09d1c809c50fb, type: 3}
 --- !u!1 &647622216069657904 stripped
 GameObject:
@@ -668,6 +671,9 @@ MonoBehaviour:
   deathAnimationState: Goblin_Dying
   destroyOnDeath: 1
   destroyDelay: 0.8
+  isPlayer: 0
+  playDamageSound: 1
+  playHealSound: 1
 --- !u!114 &8773410891767031045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,6 +688,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthBarSprite
   targetHealth: {fileID: 5748332127547450522}
   fillTransform: {fileID: 3714996987921584246}
+--- !u!114 &5147172594292450265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647622216069657904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2701a24da5437674496c67728fed1694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCoinDropper
+  coinPrefab: {fileID: 2778456206521771176, guid: 40a2a0d18602dad4a9840c00400a0796, type: 3}
+  minCoins: 2
+  maxCoins: 5
+  spawnDelay: 0.12
+  horizontalSpread: 0.45
 --- !u!4 &1744240153996619091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: a22685f337eca7e44bb09d1c809c50fb, type: 3}

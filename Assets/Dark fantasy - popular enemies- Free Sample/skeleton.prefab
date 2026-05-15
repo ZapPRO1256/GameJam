@@ -748,6 +748,9 @@ MonoBehaviour:
   deathAnimationState: Skeleton_Dying
   destroyOnDeath: 1
   destroyDelay: 0.8
+  isPlayer: 1
+  playDamageSound: 1
+  playHealSound: 1
 --- !u!114 &7529931699267773929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,6 +782,7 @@ MonoBehaviour:
   idleState: Skeleton_Idle
   moveState: Skeleton_Running
   attackState: Skeleton_Attack
+  healKey: 101
 --- !u!114 &6685101192366883336
 MonoBehaviour:
   m_ObjectHideFlags: 0
