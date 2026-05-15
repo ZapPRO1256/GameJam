@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Dark fantasy - popular enemies- Free Sample/1 level.unity
+    path: Assets/Dark fantasy - popular enemies- Free Sample/Menu.unity
+    guid: ce34e6a95eb3089459adb95e83f2fc67
+  - enabled: 1
+    path: Assets/Dark fantasy - popular enemies- Free Sample/Level1.unity
     guid: 43a7b4eb6d54f1348884af245fb7f53f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
