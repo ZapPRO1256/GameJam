@@ -172,6 +172,36 @@ public class GameManager : MonoBehaviour
     }
 
     // =====================================================
+    // SHOP UPGRADES
+    // =====================================================
+
+    public void BuyDamageUpgrade()
+    {
+        if (PlayerUpgrades.TryBuyDamageUpgrade())
+        {
+            UpdateCoinsUI();
+            Debug.Log($"Урон: +{PlayerUpgrades.DamagePerLevel} (рівень {PlayerUpgrades.GetDamageLevels()})");
+        }
+        else
+        {
+            Debug.Log("Недостатньо монет для прокачки урону!");
+        }
+    }
+
+    public void BuyHealthUpgrade()
+    {
+        if (PlayerUpgrades.TryBuyHealthUpgrade())
+        {
+            UpdateCoinsUI();
+            Debug.Log($"HP +10% (рівень {PlayerUpgrades.GetHealthLevels()})");
+        }
+        else
+        {
+            Debug.Log("Недостатньо монет для прокачки HP!");
+        }
+    }
+
+    // =====================================================
     // COINS SYSTEM
     // =====================================================
 
@@ -214,6 +244,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.DeleteKey(LevelProgress.LevelKey);
         PlayerPrefs.DeleteKey(CoinWallet.CoinsKey);
+        PlayerUpgrades.Reset();
 
         InitializeData();
 

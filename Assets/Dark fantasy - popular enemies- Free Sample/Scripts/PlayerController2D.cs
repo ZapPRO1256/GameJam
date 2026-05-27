@@ -28,6 +28,7 @@ public class PlayerController2D : MonoBehaviour
     [Header("Interaction")]
     [SerializeField] private KeyCode interactKey = KeyCode.E;
 
+    private int baseAttackDamage;
     private Rigidbody2D rb;
     private Health health;
     private HealingCampfire nearbyCampfire;
@@ -40,8 +41,19 @@ public class PlayerController2D : MonoBehaviour
 
     private void Awake()
     {
+        baseAttackDamage = attackDamage;
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
+    }
+
+    public void ApplyDamageFromUpgrades()
+    {
+        attackDamage = PlayerUpgrades.GetTotalAttackDamage(baseAttackDamage);
+    }
+
+    private void Start()
+    {
+        ApplyDamageFromUpgrades();
     }
 
     private void Update()

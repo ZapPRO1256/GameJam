@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool playDamageSound = true;
     [SerializeField] private bool playHealSound = true;
 
+    private int baseMaxHealth;
     private int currentHealth;
     private bool isDead;
     private SpriteRenderer[] spriteRenderers;
@@ -31,11 +32,13 @@ public class Health : MonoBehaviour
 
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
+    public int BaseMaxHealth => baseMaxHealth;
     public bool IsDead => isDead;
     public bool IsFullHealth => !isDead && currentHealth >= maxHealth;
 
     private void Awake()
     {
+        baseMaxHealth = maxHealth;
         currentHealth = maxHealth;
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         originalColors = new Color[spriteRenderers.Length];
@@ -48,6 +51,11 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        if (isPlayer)
+        {
+            SetMaxHealth(PlayerUpgrades.GetTotalMaxHealth(BaseMaxHealth), fillToMax: true);
+        }
+
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
@@ -107,6 +115,20 @@ public class Health : MonoBehaviour
         if (playHealSound && isPlayer)
         {
             AudioManager.Instance?.PlayHeal();
+        }
+    }
+
+    /// <summary>
+    /// Встановлює максимум HP (прокачка). baseMaxHealth не змінюється.
+    /// </summary>
+    public void SetMaxHealth(int newMaxHealth, bool fillToMax = true)
+    {
+        maxHealth = Mathf.Max(1, newMaxHealth);
+
+        if (!isDead)
+        {
+            currentHealth = fillToMax ? maxHealth : Mathf.Min(currentHealth, maxHealth);
+            OnHealthChanged?.Invoke(currentHealth, maxHealth);
         }
     }
 
